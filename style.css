@@ -58,9 +58,10 @@ button:hover {
 }
 
 .completed {
-  text-decoration: line-through;
   color: gray;
+  font-style: italic; 
 }
+
 
 .delete-btn {
   background: transparent;
@@ -68,4 +69,14 @@ button:hover {
   font-size: 18px;
   cursor: pointer;
   color: red;
+}
+
+
+.done-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: green;
+  margin-left: 10px;
 }
