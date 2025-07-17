@@ -5,19 +5,20 @@ function addTask() {
 
   if (taskText === "") return;
 
-  // Create list item
   const li = document.createElement("li");
-
-  // Create task text
   const span = document.createElement("span");
   span.textContent = taskText;
 
-  // Toggle completed style on click
-  span.onclick = function () {
-    span.classList.toggle("completed");
+  // ✅ DONE button
+  const doneBtn = document.createElement("button");
+  doneBtn.textContent = "✔";
+  doneBtn.className = "done-btn";
+  doneBtn.onclick = function () {
+    moveToDoneList(span.textContent);
+    taskList.removeChild(li);
   };
 
-  // Delete button
+  // ❌ Delete button
   const delBtn = document.createElement("button");
   delBtn.textContent = "❌";
   delBtn.className = "delete-btn";
@@ -26,14 +27,27 @@ function addTask() {
   };
 
   li.appendChild(span);
+  li.appendChild(doneBtn);
   li.appendChild(delBtn);
   taskList.appendChild(li);
 
-  // Clear input
   taskInput.value = "";
 }
 
-// ✅ Add this code to trigger on "Enter" key
+// ✅ Move task to the done list
+function moveToDoneList(taskText) {
+  const doneList = document.getElementById("doneList");
+
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = taskText;
+  span.classList.add("completed");
+
+  li.appendChild(span);
+  doneList.appendChild(li);
+}
+
+// ✅ Add "Enter" key listener
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("taskInput");
   input.addEventListener("keydown", function (event) {
