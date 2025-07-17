@@ -32,3 +32,13 @@ function addTask() {
   // Clear input
   taskInput.value = "";
 }
+
+// ✅ Add this code to trigger on "Enter" key
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("taskInput");
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      addTask();
+    }
+  });
+});
