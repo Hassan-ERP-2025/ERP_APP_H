@@ -11,7 +11,7 @@ function addTask() {
 
   // ✅ DONE button
   const doneBtn = document.createElement("button");
-  doneBtn.textContent = "✔";
+  doneBtn.textContent = t('doneButton');
   doneBtn.className = "done-btn";
   doneBtn.onclick = function () {
     moveToDoneList(span.textContent);
@@ -20,7 +20,7 @@ function addTask() {
 
   // ❌ Delete button
   const delBtn = document.createElement("button");
-  delBtn.textContent = "❌";
+  delBtn.textContent = t('deleteButton');
   delBtn.className = "delete-btn";
   delBtn.onclick = function () {
     taskList.removeChild(li);
