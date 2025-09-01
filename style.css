@@ -1,9 +1,40 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f0f2f5;
   padding: 40px;
   display: flex;
   justify-content: center;
+}
+
+/* Arabic font support */
+body.rtl {
+  font-family: 'Segoe UI', Tahoma, Arial, 'Times New Roman', sans-serif;
+}
+
+/* RTL support */
+body.rtl {
+  direction: rtl;
+}
+
+body.rtl #todoApp {
+  text-align: right;
+}
+
+body.rtl .input-section {
+  flex-direction: row-reverse;
+}
+
+body.rtl #taskInput {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+body.rtl #taskList li {
+  flex-direction: row-reverse;
+}
+
+body.rtl .language-switcher {
+  text-align: left;
 }
 
 #todoApp {
@@ -14,17 +45,50 @@ body {
   width: 400px;
 }
 
-h2 {
-  text-align: center;
+/* Language switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.language-switcher label {
+  font-weight: bold;
   color: #333;
 }
 
+.language-switcher select {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input section styling */
+.input-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 #taskInput {
-  width: 70%;
+  flex: 1;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 6px;
+  margin-right: 10px;
 }
 
 button {
@@ -34,9 +98,12 @@ button {
   color: white;
   border: none;
   border-radius: 6px;
-  margin-left: 10px;
   cursor: pointer;
   transition: background 0.3s ease;
+}
+
+.input-section button {
+  margin-left: 0;
 }
 
 button:hover {
